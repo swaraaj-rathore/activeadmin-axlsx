@@ -166,6 +166,7 @@ module ActiveAdmin
       end
 
       def export_collection(collection)
+        @sheet = package.workbook.add_worksheet
         header_row(collection) unless @skip_header
         collection.each do |resource|
           sheet.add_row resource_data(resource)
